@@ -1,0 +1,24 @@
+{
+  "name": "jsvalidater",
+  "version": "1.0.0",
+  "description": "Parameter verification",
+  "main": "Validater.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NKJay/JSValidater.git"
+  },
+  "keywords": [
+    "javascript",
+    "Parameter",
+    "verification"
+  ],
+  "author": "nkjay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NKJay/JSValidater/issues"
+  },
+  "homepage": "https://github.com/NKJay/JSValidater#readme"
+}
