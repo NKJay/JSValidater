@@ -12,4 +12,5 @@ class ValidateResult {
     return this.result
   }
 }
+
 module.exports = ValidateResult

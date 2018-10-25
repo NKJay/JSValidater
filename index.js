@@ -1,28 +1,28 @@
-const ParamsList = require('../ParamsList')
-const ValidateRlt = require('./ValidateRlt')
-const VertifyTool = require('./VertifyTool')
+const ParamsList = require('../../ParamsList')
+const Validater = require('./Validater')
+const ValidateResult = require('./ValidateRlt')
 
-module.exports = class Validater {
-  static paramsVertify (url, requestMethod, requestParams) {
+module.exports = {
+  paramsVertify (url, requestMethod, requestParams) {
     const validateRule = ParamsList[url]
     if (!validateRule) {
-      return new ValidateRlt(true, 'validate rule non-existent')
+      return new ValidateResult(true, 'validate rule non-existent')
     }
-    const validateRuleParams = validateRule.params
-    if (validateRule.method !== requestMethod) {
+    const validateRuleParams = validateRule['params']
+    if (validateRule['method'] !== requestMethod) {
       const msg = 'Request method not allow'
       const result = false
-      return new ValidateRlt(result, msg)
+      return new ValidateResult(result, msg)
     }
     let result = true
     let message = 'Success'
     try {
-      VertifyTool.objectVertify(requestParams, validateRuleParams)
+      Validater.ObjectVertify(requestParams, validateRuleParams)
     } catch (error) {
       result = false
       message = error.message
     }
 
-    return new ValidateRlt(result, message)
+    return new ValidateResult(result, message)
   }
 }
