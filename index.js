@@ -1,5 +1,5 @@
 const ParamsList = require('../../ParamsList')
-const Validater = require('./Validater')
+const valueVertify = require('./Validater')
 const ValidateResult = require('./ValidateRlt')
 
 module.exports = {
@@ -8,7 +8,6 @@ module.exports = {
     if (!validateRule) {
       return new ValidateResult(true, 'validate rule non-existent')
     }
-    const validateRuleParams = validateRule['params']
     if (validateRule['method'] !== requestMethod) {
       const msg = 'Request method not allow'
       const result = false
@@ -17,7 +16,7 @@ module.exports = {
     let result = true
     let message = 'Success'
     try {
-      Validater.ObjectVertify(requestParams, validateRuleParams)
+      valueVertify(requestParams, validateRule)
     } catch (error) {
       result = false
       message = error.message
